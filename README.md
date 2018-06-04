@@ -758,11 +758,38 @@ domonad(writer, (bind, mreturn) =>
 
 ## 다루지 않은 내용
 
-- 펑터
-- 어플리커티브 펑터
-- 모나드 트랜스포머
+- 펑터와 어플리커티브 펑터
+
+```haskell
+instance Functor m where
+    fmap = liftM
+ 
+instance Applicative m where
+    pure  = {- move the definition of `return` from the `Monad` instance here -}
+    (<*>) = ap
+```
+
 - 모나드의 추가 인터페이스
+
+```hasekll
+class Monad m where
+  (>>=)  :: m a -> (  a -> m b) -> m b
+  (>>)   :: m a ->  m b         -> m b
+  return ::   a                 -> m a
+  fail   :: String -> m a
+```
+
 - 모나드의 법칙
+
+```haskell
+return a >>= k                  =  k a
+m        >>= return             =  m
+m        >>= (\x -> k x >>= h)  =  (m >>= k) >>= h
+```
+
+- 모나드 합성
+  - Monad Transformer (https://page.mi.fu-berlin.de/scravy/realworldhaskell/materialien/monad-transformers-step-by-step.pdf)
+  - Effect (http://okmij.org/ftp/Haskell/extensible/tutorial.html)
 
 ## 가치
 
