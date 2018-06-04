@@ -737,13 +737,12 @@ domonad(writer, (bind, mreturn) =>
 thing1 >>= (\x -> func1 x >>= (\y -> thing2 
        >>= (\_ -> func2 y >>= (\z -> return z))))
        
-do {
-  x <- thing1 ;
-  y <- func1 x ;
-  thing2 ;
-  z <- func2 y ;
+do 
+  x <- thing1
+  y <- func1 x
+  thing2
+  z <- func2 y
   return z
-  }
 ```
 
 - 데이터와 함수를 묶거나 데이터와 함수를 분리하거나 다형성은 가능하다. expression problem(https://en.wikipedia.org/wiki/Expression_problem)
