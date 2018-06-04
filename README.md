@@ -772,3 +772,54 @@ domonad(writer, (bind, mreturn) =>
   - 계산 과정에서 컨텍스트를 로직과 분리해서 생각
 - 함수형 프로그래밍 센스
 - 비 순수 함수형 언어라면 언어의 철학에 맞게 언어에서 제공하는 비순수 기능과 함수형 기능을 적절히 활용하는 것이 좋다.
+
+```javascript
+bind(1, x =>
+bind(2, y =>
+     x + y));
+
+var x = 1;
+var y = 2;
+var result = x + y;
+```
+
+## 사례
+
+https://wiki.haskell.org/Monad
+
+- Identity monad - the trivial monad.
+- Optional results from computations - error checking without null.
+- Random values - run code in an environment with access to a stream of random numbers.
+- Read only variables - guarantee read-only access to values.
+- Writable state - i.e. log to a state buffer
+- A supply of unique values - useful for e.g. guids or unique variable names
+- ST - memory-only, locally-encapsulated mutable variables. Safely embed mutable state inside pure functions.
+- Global state - a scoped, mutable state.
+- Undoable state effects - roll back state changes
+- Function application - chains of function application.
+- Functions which may error - track location and causes of errors.
+- Atomic memory transactions - software transactional memory
+- Continuations - computations which can be interrupted and resumed.
+- IO - unrestricted side effects on the world
+- Search monad - bfs and dfs search environments.
+- non-determinism - interleave computations with suspension.
+- stepwise computation - encode non-deterministic choices as stepwise deterministic ones
+- Backtracking computations
+- Region allocation effects
+- LogicT - backtracking monad transformer with fair operations and pruning
+- concurrent events and threads - refactor event and callback heavy programs into straight-line code via co-routines
+- QIO - The Quantum computing monad
+- Pi calculus - a monad for Pi-calculus style concurrent programming
+- Commutable monads for parallel programming
+- Simple, Fair and Terminating Backtracking Monad
+- Typed exceptions with call traces as a monad
+- Breadth first list monad
+- Continuation-based queues as monads
+- Typed network protocol monad
+- Non-Determinism Monad for Level-Wise Search
+- Transactional state monad
+- A constraint programming monad
+- A probability distribution monad
+- Sets - Set computations
+- HTTP - http connections as a monadic environment
+- Memoization - add memoization to code
