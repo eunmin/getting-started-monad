@@ -1,4 +1,4 @@
-# 타입 없는 언어로 설명하는 모나드 첫걸음
+# 모나드 첫걸음
 
 ## 람다 함수
 
@@ -60,7 +60,6 @@ else {
 ;; str????
 ```
 
-- 기호와 집단의 언어 (https://ko.wikipedia.org/wiki/%EC%88%98%ED%95%99_%EA%B8%B0%ED%98%B8)
 - 축약의 단순함과 풀어쓰는 것과 장황함
   - multiplication vs `*`
     - `1 multiplication 2` vs `1 * 2`
